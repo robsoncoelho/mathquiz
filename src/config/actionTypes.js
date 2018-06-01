@@ -1,0 +1,2 @@
+export const SET_OPERATION_TYPE = 'SET_OPERATION_TYPE';
+export const SET_LEVEL_TYPE = 'SET_LEVEL_TYPE';
