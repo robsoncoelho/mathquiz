@@ -29,7 +29,7 @@ class SelectItem extends Component {
           this.setLevelType(type);
           setTimeout(() => {
             levelVisible(false);
-          }, 1000)
+          }, 500)
         }}>
         <Text style={Style.selectText}>{type}</Text>
       </TouchableOpacity>

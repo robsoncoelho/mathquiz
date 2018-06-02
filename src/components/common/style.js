@@ -22,7 +22,8 @@ export default MediaQueryStyleSheet.create({
       height: WINDOW_WIDTH * 0.07,
       position: 'absolute',
       left: 10,
-      top: 0
+      top: 7,
+      zIndex: 9,
     },
     backImage: {
       width: '100%',

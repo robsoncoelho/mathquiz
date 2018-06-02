@@ -35,19 +35,19 @@ class Button extends Component {
         icon_pressed;
 
     switch(type) {
-      case 'addition':
+      case 'Addition':
         icon_default = require('../../assets/images/icon_addition.png');
         icon_pressed = require('../../assets/images/icon_addition_hover.png');
       break;
-      case 'subtraction':
+      case 'Subtraction':
         icon_default = require('../../assets/images/icon_subtraction.png');
         icon_pressed = require('../../assets/images/icon_subtraction_hover.png');
       break;
-      case 'multiplication':
+      case 'Multiplication':
         icon_default = require('../../assets/images/icon_multiplication.png');
         icon_pressed = require('../../assets/images/icon_multiplication_hover.png');
       break;
-      case 'division':
+      case 'Division':
         icon_default = require('../../assets/images/icon_division.png');
         icon_pressed = require('../../assets/images/icon_division_hover.png');
       break;

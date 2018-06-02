@@ -75,10 +75,10 @@ class Main extends Component {
               transform: [{ translateX: viewPosition }],
             }]}>
             <View style={Style.buttons}>
-              <Button type={'addition'} levelVisible={this.animateLevel} />
-              <Button type={'subtraction'} levelVisible={this.animateLevel} />
-              <Button type={'multiplication'} levelVisible={this.animateLevel} />
-              <Button type={'division'} levelVisible={this.animateLevel} />
+              <Button type={'Addition'} levelVisible={this.animateLevel} />
+              <Button type={'Subtraction'} levelVisible={this.animateLevel} />
+              <Button type={'Multiplication'} levelVisible={this.animateLevel} />
+              <Button type={'Division'} levelVisible={this.animateLevel} />
             </View>
             <View style={Style.select}>
               <Text style={[Style.selectItem, Style.index]}>{'Select your level'}</Text>

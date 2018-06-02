@@ -1,4 +1,3 @@
-import { Dimensions } from 'react-native';
 import { MediaQueryStyleSheet } from 'react-native-responsive';
 import { PADDING, COLOR, WINDOW_WIDTH, WINDOW_HEIGHT } from '../common/variables';
 
