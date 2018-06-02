@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Text, TextInput, Image, ImageBackground, TouchableOpacity, TouchableHighlight } from 'react-native';
 import { BACK_BUTTON, LOGO_SMALL, COLOR } from '../common/variables';
+import { answerQuestion } from './Question.actions';
 import Button from './Button';
 
 import CommonStyle from '../common/style';
@@ -20,14 +21,15 @@ class Question extends Component {
     }
 
     this.setBackgroundPage = this.setBackgroundPage.bind(this);
-    this.newOperationValues = this.newOperationValues.bind(this);
     this.generateRandomAnswers = this.generateRandomAnswers.bind(this);
+    this.newQuestion = this.newQuestion.bind(this);
     this.rangeByLevel = this.rangeByLevel.bind(this);
   }
 
   componentWillMount() {
     this.setBackgroundPage();
-    this.newOperationValues();
+    this.newQuestion();
+    this.props.answerQuestion(true);
   }
 
   setBackgroundPage() {
@@ -53,9 +55,11 @@ class Question extends Component {
     }
   }
 
-  newOperationValues() {
-    const { operation } = this.props;
+  newQuestion() {
+    const { operation, answerQuestion } = this.props;
     const ranges = this.rangeByLevel();
+
+    answerQuestion(true);
 
     let value1 = Math.floor((Math.random() * ranges['range1']) + 2);
     let value2 = Math.floor((Math.random() * ranges['range2']) + 2);
@@ -102,7 +106,10 @@ class Question extends Component {
 
     switch(operation) {
       case 'Division':
+        range2 = 3;
+      break;
       case 'Multiplication':
+        range1 = 10
         range2 = 3;
       break;
     }
@@ -111,7 +118,7 @@ class Question extends Component {
   }
 
   render() {
-    const { operation, level, navigation } = this.props;
+    const { operation, level, navigation, answerQuestion } = this.props;
     const { firstValue, secondValue, result } = this.state;
     let randomAnswers = [];
 
@@ -131,6 +138,7 @@ class Question extends Component {
               activeOpacity={0.4}
               onPress={() => {
                 navigation.goBack();
+                answerQuestion(true);
               }}>
               <Image
                 style={CommonStyle.backImage}
@@ -152,7 +160,7 @@ class Question extends Component {
                   resizeMode={'contain'}
                   source={require('../../assets/images/icon_heart.png')}
                 />
-                <Text style={Style.counter}>{'3'}</Text>
+                <Text style={Style.counter}>{'5'}</Text>
               </View>
             </View>
             <Text style={Style.title}>{operation}</Text>
@@ -167,7 +175,11 @@ class Question extends Component {
             </View>
             <View style={Style.buttons}>
               { randomAnswers.map((item, index) => {
-                  return <Button key={index} value={item} correctAnswer={(result === item ? true : false)} />
+                  return <Button
+                          key={index}
+                          value={item}
+                          newQuestion={this.newQuestion}
+                          correctAnswer={(result === item ? true : false)} />
                 })
               }
             </View>
@@ -182,4 +194,10 @@ const mapStateToProps = state => ({
   level: state.main.level
 });
 
-export default connect(mapStateToProps)(Question);
+const mapDispatchToProps = dispatch => ({
+  answerQuestion: (value) => {
+    dispatch(answerQuestion(value));
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Question);

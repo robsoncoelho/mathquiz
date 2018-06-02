@@ -48,7 +48,7 @@ class Main extends Component {
     const { navigation } = this.props;
 
     return (
-      <ImageBackground source={require('../../assets/images/bg_home.png')} style={CommonStyle.imageBackground}>
+      <ImageBackground source={require('../../assets/images/bg_home4.png')} style={CommonStyle.imageBackground}>
         <View style={CommonStyle.content}>
           {levelVisible &&
           <TouchableOpacity

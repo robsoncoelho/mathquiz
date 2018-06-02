@@ -18,11 +18,11 @@ export default MediaQueryStyleSheet.create({
   		marginTop: WINDOW_HEIGHT * 0.05
   	},
     backButton: {
-      width: WINDOW_WIDTH * 0.1,
-      height: WINDOW_WIDTH * 0.07,
+      width: WINDOW_WIDTH * 0.08,
+      height: WINDOW_WIDTH * 0.06,
       position: 'absolute',
       left: 10,
-      top: 7,
+      top: 9,
       zIndex: 9,
     },
     backImage: {

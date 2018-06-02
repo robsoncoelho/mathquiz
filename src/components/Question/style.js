@@ -23,7 +23,7 @@ export default MediaQueryStyleSheet.create({
 		marginRight: 5,
 	},
 	counter: {
-		fontSize: 13,
+		fontSize: 14,
 		color: COLOR.WHITE
 	},
 	title: {
@@ -79,10 +79,10 @@ export default MediaQueryStyleSheet.create({
 		borderWidth: 2,
 	},
 	buttonCorrect: {
-		backgroundColor: '#48C688'
+		backgroundColor: COLOR.GREEN
 	},
 	buttonWrong: {
-		backgroundColor: '#FF6262'
+		backgroundColor: COLOR.RED
 	},
 	buttonText: {
 		color: COLOR.WHITE,

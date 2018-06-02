@@ -3,7 +3,9 @@ import { Platform, Dimensions } from 'react-native';
 export const COLOR = {
   WHITE: '#FFFFFF',
   BLACK: '#000000',
-  GREY: '#666666'
+  GREY: '#666666',
+  GREEN: '#48C688',
+  RED: '#FF6262',
 };
 
 export const PADDING = {
