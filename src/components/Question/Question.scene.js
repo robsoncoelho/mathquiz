@@ -1,10 +1,29 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, Text, TextInput, Image, ImageBackground, TouchableOpacity, TouchableHighlight } from 'react-native';
-import { BACK_BUTTON, LOGO_SMALL, COLOR } from '../common/variables';
-import { answerQuestion } from './Question.actions';
-import Button from './Button';
+import {
+  View,
+  Text,
+  Image,
+  ImageBackground,
+  TouchableOpacity,
+} from 'react-native';
 
+import {
+  BACK_BUTTON,
+  LOGO_SMALL,
+  COLOR,
+  ICON_HEART,
+  ICON_HEART_WHITE,
+} from '../common/variables';
+
+import {
+  answerQuestion,
+  updatePoints,
+  updateLives,
+} from './Question.actions';
+
+import Button from './Button';
+import Modal from 'react-native-modal';
 import CommonStyle from '../common/style';
 import Style from './style';
 
@@ -18,23 +37,28 @@ class Question extends Component {
       firstValue: 0,
       secondValue: 0,
       result: 0,
+      modalVisible: false,
     }
 
     this.setBackgroundPage = this.setBackgroundPage.bind(this);
     this.generateRandomAnswers = this.generateRandomAnswers.bind(this);
     this.newQuestion = this.newQuestion.bind(this);
     this.rangeByLevel = this.rangeByLevel.bind(this);
+    this.setPopupContent = this.setPopupContent.bind(this);
+    this.confirmQuit = this.confirmQuit.bind(this);
+    this.cancelQuit = this.cancelQuit.bind(this);
+    this.showModal = this.showModal.bind(this);
   }
 
   componentWillMount() {
     this.setBackgroundPage();
     this.newQuestion();
-    this.props.answerQuestion(true);
   }
 
   shouldComponentUpdate(nextProps, nextState) {
     return  this.state.firstValue !== nextState.firstValue ||
-            this.state.secondValue !== nextState.secondValue;
+            this.state.secondValue !== nextState.secondValue ||
+            this.state.showModal !== nextState.showModal;
   }
 
   setBackgroundPage() {
@@ -67,8 +91,6 @@ class Question extends Component {
     } = this.props;
 
     const ranges = this.rangeByLevel();
-
-    console.log('newQuestion')
 
     answerQuestion(true);
 
@@ -128,18 +150,68 @@ class Question extends Component {
     return {range1: range1, range2: range2}
   }
 
+  showModal(bool = false) {
+    this.setState({ showModal: bool });
+  }
+
+  cancelQuit() {
+    this.showModal(false);
+  }
+
+  confirmQuit() {
+    const {
+      answerQuestion,
+      updatePoints,
+      updateLives,
+      navigation,
+    } = this.props;
+
+    this.showModal(false);
+
+    setTimeout(()=> {
+      navigation.goBack();
+      answerQuestion(true);
+      updatePoints(0);
+      updateLives(3);
+    }, 400)
+  }
+
+  setPopupContent(message = '') {
+    return (
+      <View style={Style.popup}>
+        <Text style={Style.popupTitle}>Are you sure you want to quit?</Text>
+        <Text style={Style.popupMessage}>Your points will be canceled.</Text>
+        <View style={Style.popupButtons}>
+          <TouchableOpacity
+            style={Style.popupButton}
+            activeOpacity={0.4}
+            onPress={() => { this.cancelQuit() }}>
+            <Text style={Style.popupMessage}>CANCEL</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={Style.popupButton}
+            activeOpacity={0.4}
+            onPress={() => { this.confirmQuit() }}>
+            <Text style={Style.popupMessage}>CONFIRM</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    )
+  }
+
   render() {
     const {
       operation,
       navigation,
-      answerQuestion,
-      points
+      points,
+      lives
     } = this.props;
 
     const {
       firstValue,
       secondValue,
-      result
+      result,
+      showModal
     } = this.state;
 
     let randomAnswers = [];
@@ -149,7 +221,6 @@ class Question extends Component {
     })
 
     randomAnswers.push(result);
-
     randomAnswers = randomAnswers.sort((a, b) => 0.5 - Math.random());
 
     return (
@@ -159,8 +230,7 @@ class Question extends Component {
               style={CommonStyle.backButton}
               activeOpacity={0.4}
               onPress={() => {
-                navigation.goBack();
-                answerQuestion(true);
+                this.showModal(true)
               }}>
               <Image
                 style={CommonStyle.backImage}
@@ -178,21 +248,14 @@ class Question extends Component {
               <View style={Style.details}>
                 <Text style={Style.counter}>{points}{' pts'}</Text>
                 <View style={Style.hearts}>
-                  <Image
-                    style={Style.iconHeart}
-                    resizeMode={'contain'}
-                    source={require('../../assets/images/icon_heart_white.png')}
-                  />
-                  <Image
-                    style={Style.iconHeart}
-                    resizeMode={'contain'}
-                    source={require('../../assets/images/icon_heart_white.png')}
-                  />
-                  <Image
-                    style={Style.iconHeart}
-                    resizeMode={'contain'}
-                    source={require('../../assets/images/icon_heart_white.png')}
-                  />
+                    { [1,2,3].map((item, index) => {
+                        return  <Image
+                                  key={index}
+                                  style={Style.iconHeart}
+                                  resizeMode={'contain'}
+                                  source={(index >= lives ? ICON_HEART : ICON_HEART_WHITE) } />
+                      })
+                    }
                 </View>
               </View>
             </View>
@@ -217,6 +280,13 @@ class Question extends Component {
               }
             </View>
           </View>
+          <Modal
+            animationInTiming={400}
+            animationOutTiming={400}
+            useNativeDriver={true}
+            isVisible={showModal}>
+            {this.setPopupContent()}
+          </Modal>
         </ImageBackground>
     );
   }
@@ -225,11 +295,18 @@ class Question extends Component {
 const mapStateToProps = state => ({
   operation: state.main.operation,
   points: state.question.points,
+  lives: state.question.lives,
 });
 
 const mapDispatchToProps = dispatch => ({
   answerQuestion: (value) => {
     dispatch(answerQuestion(value));
+  },
+  updatePoints: (value) => {
+    dispatch(updatePoints(value));
+  },
+  updateLives: (value) => {
+    dispatch(updateLives(value));
   },
 });
 

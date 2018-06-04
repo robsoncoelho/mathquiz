@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { COLOR } from '../common/variables';
-import { answerQuestion, updatePoints } from './Question.actions';
+import {
+  answerQuestion,
+  updatePoints,
+  updateLives
+} from './Question.actions';
 
 import Style from './style';
 
@@ -19,16 +23,22 @@ class Button extends Component {
       newQuestion,
       correctAnswer,
       updatePoints,
-      points
+      updateLives,
+      points,
+      lives
     } = this.props;
 
     const { answeredQuestion } = this.state;
 
     answerQuestion(false);
-    updatePoints(points + 10);
+
+    if(correctAnswer) {
+      updatePoints(points + 10);
+    } else {
+      updateLives(lives - 1);
+    }
 
     this.setState({ answeredQuestion: true });
-
     setTimeout(() => {
       this.setState({ answeredQuestion: false });
       newQuestion();
@@ -39,7 +49,7 @@ class Button extends Component {
     const {
       value,
       correctAnswer,
-      enableAnswer
+      enableAnswer,
     } = this.props;
 
     const { answeredQuestion } = this.state;
@@ -63,6 +73,7 @@ class Button extends Component {
 const mapStateToProps = state => ({
   enableAnswer: state.question.enableAnswer,
   points: state.question.points,
+  lives: state.question.lives,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -71,6 +82,9 @@ const mapDispatchToProps = dispatch => ({
   },
   updatePoints: (value) => {
     dispatch(updatePoints(value));
+  },
+  updateLives: (value) => {
+    dispatch(updateLives(value));
   },
 });
 

@@ -22,7 +22,7 @@ export default MediaQueryStyleSheet.create({
 		alignItems: 'flex-end'
 	},
 	hearts: {
-		flexDirection: 'row',
+		flexDirection: 'row-reverse',
 		justifyContent: 'flex-end',
 	},
 	iconHeart: {
@@ -94,5 +94,53 @@ export default MediaQueryStyleSheet.create({
 	buttonText: {
 		color: COLOR.WHITE,
 		fontSize: 22
+	},
+	modal: {
+		top: 0,
+		left: 0,
+		width: WINDOW_WIDTH,
+		height: WINDOW_HEIGHT,
+		backgroundColor: COLOR.BLACK_TRANSPARENCY,
+		position: 'absolute',
+		alignItems: 'center',
+		justifyContent: 'center',
+		display: 'none'
+	},
+	modalVisible: {
+		display: 'flex'
+	},
+	popup: {
+		width: WINDOW_WIDTH * 0.9,
+		backgroundColor: COLOR.WHITE,
+		justifyContent: 'center',
+		alignItems: 'center',
+		marginTop: WINDOW_HEIGHT * -0.1,
+		borderRadius: 8,
+		paddingHorizontal: 10,
+		paddingTop: 20,
+		paddingBottom: 14,
+	},
+	popupTitle: {
+		fontSize: 16,
+		fontWeight: 'bold',
+		marginBottom: 10,
+		color: COLOR.BLACK,
+	},
+	popupMessage: {
+		fontSize: 12,
+		color: COLOR.BLACK,
+	},
+	popupButtons: {
+		flexDirection: 'row',
+		marginTop: 20,
+	},
+	popupButton: {
+		borderColor: COLOR.GREY_DARK,
+		alignItems: 'center',
+		borderRadius: 6,
+		borderWidth: 1,
+		paddingVertical: 10,
+		marginHorizontal: 5,
+		flex: 1
 	}
 });

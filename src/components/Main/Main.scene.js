@@ -1,6 +1,21 @@
 import React, { Component } from 'react';
-import { View, Text, Animated, Easing, Image, ImageBackground, TouchableOpacity, Dimensions } from 'react-native';
-import { LOGO, BACK_BUTTON, COLOR } from '../common/variables';
+import {
+  View,
+  Text,
+  Animated,
+  Easing,
+  Image,
+  ImageBackground,
+  TouchableOpacity,
+  Dimensions
+} from 'react-native';
+
+import {
+  LOGO,
+  BACK_BUTTON,
+  COLOR
+} from '../common/variables';
+
 import Button from './Button';
 
 import CommonStyle from '../common/style';
