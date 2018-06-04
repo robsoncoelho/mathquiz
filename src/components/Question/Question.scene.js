@@ -32,6 +32,11 @@ class Question extends Component {
     this.props.answerQuestion(true);
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    return  this.state.firstValue !== nextState.firstValue ||
+            this.state.secondValue !== nextState.secondValue;
+  }
+
   setBackgroundPage() {
     const { operation } = this.props;
 
@@ -56,8 +61,14 @@ class Question extends Component {
   }
 
   newQuestion() {
-    const { operation, answerQuestion } = this.props;
+    const {
+      operation,
+      answerQuestion
+    } = this.props;
+
     const ranges = this.rangeByLevel();
+
+    console.log('newQuestion')
 
     answerQuestion(true);
 
@@ -118,8 +129,19 @@ class Question extends Component {
   }
 
   render() {
-    const { operation, level, navigation, answerQuestion } = this.props;
-    const { firstValue, secondValue, result } = this.state;
+    const {
+      operation,
+      navigation,
+      answerQuestion,
+      points
+    } = this.props;
+
+    const {
+      firstValue,
+      secondValue,
+      result
+    } = this.state;
+
     let randomAnswers = [];
 
     [1,2,3].forEach(() => {
@@ -147,20 +169,31 @@ class Question extends Component {
               />
             </TouchableOpacity>
             <View style={Style.header}>
-              <View style={Style.counterBox}>
-              </View>
               <Image
                 style={Style.logoSmall}
                 resizeMode={'contain'}
                 source={LOGO_SMALL}
               />
-              <View style={Style.counterBox}>
-                <Image
-                  style={Style.iconHeart}
-                  resizeMode={'contain'}
-                  source={require('../../assets/images/icon_heart.png')}
-                />
-                <Text style={Style.counter}>{'5'}</Text>
+
+              <View style={Style.details}>
+                <Text style={Style.counter}>{points}{' pts'}</Text>
+                <View style={Style.hearts}>
+                  <Image
+                    style={Style.iconHeart}
+                    resizeMode={'contain'}
+                    source={require('../../assets/images/icon_heart_white.png')}
+                  />
+                  <Image
+                    style={Style.iconHeart}
+                    resizeMode={'contain'}
+                    source={require('../../assets/images/icon_heart_white.png')}
+                  />
+                  <Image
+                    style={Style.iconHeart}
+                    resizeMode={'contain'}
+                    source={require('../../assets/images/icon_heart_white.png')}
+                  />
+                </View>
               </View>
             </View>
             <Text style={Style.title}>{operation}</Text>
@@ -191,7 +224,7 @@ class Question extends Component {
 
 const mapStateToProps = state => ({
   operation: state.main.operation,
-  level: state.main.level
+  points: state.question.points,
 });
 
 const mapDispatchToProps = dispatch => ({

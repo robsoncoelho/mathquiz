@@ -1,6 +1,5 @@
 import {
-  SET_OPERATION_TYPE,
-  SET_LEVEL_TYPE
+  SET_OPERATION_TYPE
 } from '../../config/actionTypes';
 
 export function setOperationType(operation) {
@@ -8,15 +7,6 @@ export function setOperationType(operation) {
     dispatch({
       type: SET_OPERATION_TYPE,
       payload: operation,
-    });
-  };
-}
-
-export function setLevelType(level) {
-  return (dispatch, getStore) => {
-    dispatch({
-      type: SET_LEVEL_TYPE,
-      payload: level,
     });
   };
 }

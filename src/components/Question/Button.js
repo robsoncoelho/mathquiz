@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { COLOR } from '../common/variables';
-import { answerQuestion } from './Question.actions';
+import { answerQuestion, updatePoints } from './Question.actions';
 
 import Style from './style';
 
@@ -14,10 +14,19 @@ class Button extends Component {
   }
 
   answeredQuestion() {
-    const { answerQuestion, newQuestion } = this.props;
+    const {
+      answerQuestion,
+      newQuestion,
+      correctAnswer,
+      updatePoints,
+      points
+    } = this.props;
+
     const { answeredQuestion } = this.state;
 
     answerQuestion(false);
+    updatePoints(points + 10);
+
     this.setState({ answeredQuestion: true });
 
     setTimeout(() => {
@@ -27,7 +36,12 @@ class Button extends Component {
   }
 
   render() {
-    const { value, correctAnswer, enableAnswer } = this.props;
+    const {
+      value,
+      correctAnswer,
+      enableAnswer
+    } = this.props;
+
     const { answeredQuestion } = this.state;
 
     return (
@@ -48,11 +62,15 @@ class Button extends Component {
 
 const mapStateToProps = state => ({
   enableAnswer: state.question.enableAnswer,
+  points: state.question.points,
 });
 
 const mapDispatchToProps = dispatch => ({
   answerQuestion: (value) => {
     dispatch(answerQuestion(value));
+  },
+  updatePoints: (value) => {
+    dispatch(updatePoints(value));
   },
 });
 

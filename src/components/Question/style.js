@@ -6,28 +6,35 @@ export default MediaQueryStyleSheet.create({
 		flexDirection: 'row',
 		width: '90%',
 		alignItems: 'center',
-		justifyContent: 'space-between',
+		justifyContent: 'center',
+		position: 'relative'
 	},
 	logoSmall: {
 		alignSelf: 'center',
 		width: WINDOW_WIDTH * 0.25
 	},
-	counterBox: {
-		flexDirection: 'row',
-		alignItems: 'center',
+	details: {
+		position: 'absolute',
+		top: 7,
+		right: 0,
+		flexDirection: 'column',
 		justifyContent: 'flex-end',
-		width: WINDOW_WIDTH * 0.20
+		alignItems: 'flex-end'
+	},
+	hearts: {
+		flexDirection: 'row',
+		justifyContent: 'flex-end',
 	},
 	iconHeart: {
-		width: WINDOW_WIDTH * 0.06,
-		marginRight: 5,
+		width: WINDOW_WIDTH * 0.04,
+		marginLeft: 5,
 	},
 	counter: {
 		fontSize: 14,
 		color: COLOR.WHITE
 	},
 	title: {
-		marginTop: WINDOW_HEIGHT * 0.05,
+		marginTop: WINDOW_HEIGHT * 0.08,
 		fontWeight: '300',
 		fontSize: 35,
 		color: COLOR.WHITE

@@ -28,7 +28,7 @@ class Button extends Component {
   }
 
   render() {
-    const { type, levelVisible } = this.props;
+    const { type, navigation } = this.props;
     const { pressButton } = this.state;
 
     let icon_default,
@@ -60,7 +60,7 @@ class Button extends Component {
         onHideUnderlay={this.onHideUnderlay.bind(this)}
         onShowUnderlay={this.onShowUnderlay.bind(this)}
         onPress={() => {
-            levelVisible(true);
+            navigation.navigate('Question');
             this.setOperationType(type);
           }
         }>
