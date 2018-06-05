@@ -20,45 +20,45 @@ import {
   answerQuestion,
   updatePoints,
   updateLives,
+  modalVisibility,
+  updateModalType,
 } from './Question.actions';
 
 import Button from './Button';
+import ModalTemplate from './Modal';
 import Modal from 'react-native-modal';
 import CommonStyle from '../common/style';
 import Style from './style';
 
-let bg_page, icon_operation;
+let bg_page,
+    icon_operation,
+    randomAnswers = [];
 
 class Question extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pressButton: false,
       firstValue: 0,
       secondValue: 0,
       result: 0,
-      modalVisible: false,
     }
 
     this.setBackgroundPage = this.setBackgroundPage.bind(this);
     this.generateRandomAnswers = this.generateRandomAnswers.bind(this);
     this.newQuestion = this.newQuestion.bind(this);
     this.rangeByLevel = this.rangeByLevel.bind(this);
-    this.setPopupContent = this.setPopupContent.bind(this);
-    this.confirmQuit = this.confirmQuit.bind(this);
-    this.cancelQuit = this.cancelQuit.bind(this);
-    this.showModal = this.showModal.bind(this);
   }
 
   componentWillMount() {
     this.setBackgroundPage();
     this.newQuestion();
+    this.props.modalVisibility(false);
   }
 
   shouldComponentUpdate(nextProps, nextState) {
     return  this.state.firstValue !== nextState.firstValue ||
             this.state.secondValue !== nextState.secondValue ||
-            this.state.showModal !== nextState.showModal;
+            this.props.modalVisible !== nextProps.modalVisible;
   }
 
   setBackgroundPage() {
@@ -150,78 +150,33 @@ class Question extends Component {
     return {range1: range1, range2: range2}
   }
 
-  showModal(bool = false) {
-    this.setState({ showModal: bool });
-  }
-
-  cancelQuit() {
-    this.showModal(false);
-  }
-
-  confirmQuit() {
-    const {
-      answerQuestion,
-      updatePoints,
-      updateLives,
-      navigation,
-    } = this.props;
-
-    this.showModal(false);
-
-    setTimeout(()=> {
-      navigation.goBack();
-      answerQuestion(true);
-      updatePoints(0);
-      updateLives(3);
-    }, 400)
-  }
-
-  setPopupContent(message = '') {
-    return (
-      <View style={Style.popup}>
-        <Text style={Style.popupTitle}>Are you sure you want to quit?</Text>
-        <Text style={Style.popupMessage}>Your points will be canceled.</Text>
-        <View style={Style.popupButtons}>
-          <TouchableOpacity
-            style={Style.popupButton}
-            activeOpacity={0.4}
-            onPress={() => { this.cancelQuit() }}>
-            <Text style={Style.popupMessage}>CANCEL</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={Style.popupButton}
-            activeOpacity={0.4}
-            onPress={() => { this.confirmQuit() }}>
-            <Text style={Style.popupMessage}>CONFIRM</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-    )
-  }
-
   render() {
     const {
       operation,
       navigation,
       points,
-      lives
+      lives,
+      modalVisible,
+      modalVisibility,
+      modalType
     } = this.props;
 
     const {
       firstValue,
       secondValue,
-      result,
-      showModal
+      result
     } = this.state;
 
-    let randomAnswers = [];
+    if(lives !== 0) {
+      randomAnswers = [];
 
-    [1,2,3].forEach(() => {
-      randomAnswers.push(this.generateRandomAnswers(result, randomAnswers));
-    })
+      [1,2,3].forEach(() => {
+        randomAnswers.push(this.generateRandomAnswers(result, randomAnswers));
+      })
 
-    randomAnswers.push(result);
-    randomAnswers = randomAnswers.sort((a, b) => 0.5 - Math.random());
+      randomAnswers.push(result);
+      randomAnswers = randomAnswers.sort((a, b) => 0.5 - Math.random());
+    }
 
     return (
       <ImageBackground source={bg_page} style={CommonStyle.imageBackground}>
@@ -230,7 +185,11 @@ class Question extends Component {
               style={CommonStyle.backButton}
               activeOpacity={0.4}
               onPress={() => {
-                this.showModal(true)
+                if(points > 0) {
+                  modalVisibility(true)
+                } else {
+                  navigation.goBack();
+                }
               }}>
               <Image
                 style={CommonStyle.backImage}
@@ -284,8 +243,12 @@ class Question extends Component {
             animationInTiming={400}
             animationOutTiming={400}
             useNativeDriver={true}
-            isVisible={showModal}>
-            {this.setPopupContent()}
+            backdropOpacity={0.8}
+            style={Style.modal}
+            isVisible={modalVisible}>
+            <ModalTemplate
+              type={modalType}
+              navigation={navigation} />
           </Modal>
         </ImageBackground>
     );
@@ -296,6 +259,8 @@ const mapStateToProps = state => ({
   operation: state.main.operation,
   points: state.question.points,
   lives: state.question.lives,
+  modalVisible: state.question.modalVisible,
+  modalType: state.question.modalType,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -307,6 +272,12 @@ const mapDispatchToProps = dispatch => ({
   },
   updateLives: (value) => {
     dispatch(updateLives(value));
+  },
+  modalVisibility: (value) => {
+    dispatch(modalVisibility(value));
+  },
+  updateModalType: (value) => {
+    dispatch(updateModalType(value));
   },
 });
 

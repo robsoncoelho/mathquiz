@@ -5,7 +5,9 @@ import { COLOR } from '../common/variables';
 import {
   answerQuestion,
   updatePoints,
-  updateLives
+  updateLives,
+  modalVisibility,
+  updateModalType,
 } from './Question.actions';
 
 import Style from './style';
@@ -25,7 +27,9 @@ class Button extends Component {
       updatePoints,
       updateLives,
       points,
-      lives
+      lives,
+      modalVisibility,
+      updateModalType,
     } = this.props;
 
     const { answeredQuestion } = this.state;
@@ -36,13 +40,19 @@ class Button extends Component {
       updatePoints(points + 10);
     } else {
       updateLives(lives - 1);
+      if(lives - 1 === 0) {
+        updateModalType('RESTART');
+        modalVisibility(true);
+        answerQuestion(true);
+      }
     }
 
     this.setState({ answeredQuestion: true });
+
     setTimeout(() => {
       this.setState({ answeredQuestion: false });
       newQuestion();
-    }, 1000)
+    }, 500)
   }
 
   render() {
@@ -85,6 +95,12 @@ const mapDispatchToProps = dispatch => ({
   },
   updateLives: (value) => {
     dispatch(updateLives(value));
+  },
+  modalVisibility: (value) => {
+    dispatch(modalVisibility(value));
+  },
+  updateModalType: (value) => {
+    dispatch(updateModalType(value));
   },
 });
 

@@ -96,21 +96,10 @@ export default MediaQueryStyleSheet.create({
 		fontSize: 22
 	},
 	modal: {
-		top: 0,
-		left: 0,
-		width: WINDOW_WIDTH,
-		height: WINDOW_HEIGHT,
-		backgroundColor: COLOR.BLACK_TRANSPARENCY,
-		position: 'absolute',
-		alignItems: 'center',
-		justifyContent: 'center',
-		display: 'none'
-	},
-	modalVisible: {
-		display: 'flex'
+		alignItems: 'center'
 	},
 	popup: {
-		width: WINDOW_WIDTH * 0.9,
+		width: WINDOW_WIDTH * 0.85,
 		backgroundColor: COLOR.WHITE,
 		justifyContent: 'center',
 		alignItems: 'center',
@@ -126,9 +115,35 @@ export default MediaQueryStyleSheet.create({
 		marginBottom: 10,
 		color: COLOR.BLACK,
 	},
-	popupMessage: {
-		fontSize: 12,
+	popupTitleLarge: {
+		fontSize: 24,
+		fontWeight: '500',
+		marginBottom: 20,
 		color: COLOR.BLACK,
+	},
+	popupMessage: {
+		fontSize: 13,
+		color: COLOR.BLACK,
+		textAlign: 'center',
+		width: WINDOW_WIDTH * 0.75,
+	},
+	shareButtons: {
+		marginTop: 20,
+		width: WINDOW_WIDTH * 0.7,
+		flexDirection: 'column',
+	},
+	shareButton: {
+		borderColor: COLOR.WHITE,
+		width: '100%',
+		alignItems: 'center',
+		borderRadius: 6,
+		borderWidth: 1,
+		paddingVertical: 16,
+		marginBottom: 10,
+	},
+	shareText: {
+		fontSize: 18,
+		color: COLOR.WHITE
 	},
 	popupButtons: {
 		flexDirection: 'row',
@@ -140,7 +155,17 @@ export default MediaQueryStyleSheet.create({
 		borderRadius: 6,
 		borderWidth: 1,
 		paddingVertical: 10,
-		marginHorizontal: 5,
-		flex: 1
+		marginHorizontal: '2%',
+		flex: 1,
+	},
+	stars: {
+		marginTop: 10,
+		flexDirection: 'row',
+		justifyContent: 'center'
+	},
+	iconStar: {
+		height: 35,
+		width: 35,
+		marginTop: -15
 	}
 });
