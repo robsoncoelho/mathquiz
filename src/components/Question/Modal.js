@@ -21,6 +21,7 @@ class Modal extends Component {
     this.confirmRestart = this.confirmRestart.bind(this);
     this.quitPopUpTemplate = this.quitPopUpTemplate.bind(this);
     this.restartPopUpTemplate = this.restartPopUpTemplate.bind(this);
+    this.noScorePopUpTemplate = this.noScorePopUpTemplate.bind(this);
     this.shareContent = this.shareContent.bind(this);
   }
 
@@ -141,9 +142,30 @@ class Modal extends Component {
     )
   }
 
+  noScorePopUpTemplate() {
+    return (
+      <View style={Style.popup}>
+        <View style={Style.stars}>
+          <Text style={[Style.popupTitleLarge]}>Ops!</Text>
+        </View>
+        <Text style={[Style.popupTitle]}>You didn't go so fine this time.</Text>
+        <Text style={Style.popupMessage}>Come on, try again and show how you can go better now!</Text>
+        <View style={Style.shareButtons}>
+          <TouchableOpacity
+            style={[Style.shareButton, {backgroundColor: '#FFB717'}]}
+            activeOpacity={0.2}
+            onPress={() => { this.confirmRestart() }}>
+            <Text style={Style.shareText}>Try Again</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    )
+  }
+
   render() {
     const {
       type,
+      score
     } = this.props;
 
     switch(type) {
@@ -151,7 +173,11 @@ class Modal extends Component {
         return this.quitPopUpTemplate()
       break;
       case 'RESTART':
-        return this.restartPopUpTemplate()
+        if(score > 0) {
+          return this.restartPopUpTemplate()
+        } else {
+          return this.noScorePopUpTemplate()
+        }
       break;
     }
   }
