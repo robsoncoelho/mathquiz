@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { COLOR } from '../common/variables';
 import {
   answerQuestion,
-  updatePoints,
+  updateScore,
   updateLives,
   modalVisibility,
   updateModalType,
@@ -24,9 +24,9 @@ class Button extends Component {
       answerQuestion,
       newQuestion,
       correctAnswer,
-      updatePoints,
+      updateScore,
       updateLives,
-      points,
+      score,
       lives,
       modalVisibility,
       updateModalType,
@@ -37,7 +37,7 @@ class Button extends Component {
     answerQuestion(false);
 
     if(correctAnswer) {
-      updatePoints(points + 10);
+      updateScore(score + 10);
     } else {
       updateLives(lives - 1);
       if(lives - 1 === 0) {
@@ -82,7 +82,7 @@ class Button extends Component {
 
 const mapStateToProps = state => ({
   enableAnswer: state.question.enableAnswer,
-  points: state.question.points,
+  score: state.question.score,
   lives: state.question.lives,
 });
 
@@ -90,8 +90,8 @@ const mapDispatchToProps = dispatch => ({
   answerQuestion: (value) => {
     dispatch(answerQuestion(value));
   },
-  updatePoints: (value) => {
-    dispatch(updatePoints(value));
+  updateScore: (value) => {
+    dispatch(updateScore(value));
   },
   updateLives: (value) => {
     dispatch(updateLives(value));

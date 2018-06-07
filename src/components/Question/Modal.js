@@ -3,7 +3,7 @@ import { View, Text, Image, TouchableOpacity, Share } from 'react-native';
 import { connect } from 'react-redux';
 import {
   answerQuestion,
-  updatePoints,
+  updateScore,
   updateLives,
   modalVisibility,
   updateModalType,
@@ -26,23 +26,23 @@ class Modal extends Component {
 
   shareContent() {
     const {
-      points
+      score
     } = this.props;
 
     Share.share({
-      message: `My new score in the Division Math Operation is ${points} MathQuiz: URL DA STORE`,
+      message: `My new score in the Division Math Operation is ${score} MathQuiz: URL DA STORE`,
       url: 'URL DA APP STORE',
       title: 'My new MathQuiz score'
     }, {
       // Android only:
-      dialogTitle: `My new MathQuiz score is ${points}.`,
+      dialogTitle: `My new MathQuiz score is ${score}.`,
     })
   }
 
   confirmQuit() {
     const {
       answerQuestion,
-      updatePoints,
+      updateScore,
       updateLives,
       navigation,
       modalVisibility,
@@ -55,14 +55,14 @@ class Modal extends Component {
       navigation.goBack();
       answerQuestion(true);
       updateModalType('QUIT');
-      updatePoints(0);
+      updateScore(0);
       updateLives(3);
     }, 400)
   }
 
   confirmRestart() {
     const {
-      updatePoints,
+      updateScore,
       updateLives,
       modalVisibility,
       updateModalType,
@@ -70,7 +70,7 @@ class Modal extends Component {
 
     modalVisibility(false);
     updateModalType('QUIT');
-    updatePoints(0);
+    updateScore(0);
     updateLives(3);
   }
 
@@ -82,7 +82,7 @@ class Modal extends Component {
     return (
       <View style={Style.popup}>
         <Text style={Style.popupTitle}>Are you sure you want to quit?</Text>
-        <Text style={Style.popupMessage}>Your points will be canceled.</Text>
+        <Text style={Style.popupMessage}>Your score will be canceled.</Text>
         <View style={Style.popupButtons}>
           <TouchableOpacity
             style={Style.popupButton}
@@ -103,7 +103,7 @@ class Modal extends Component {
 
   restartPopUpTemplate() {
     const {
-      points
+      score
     } = this.props;
 
     return (
@@ -121,7 +121,7 @@ class Modal extends Component {
             source={require('../../assets/images/stars_right.png')}
           />
         </View>
-        <Text style={[Style.popupTitle]}>Your new score is: {points}</Text>
+        <Text style={[Style.popupTitle]}>Your new score is: {score}</Text>
         <Text style={Style.popupMessage}>This is a great score, share with your friends and keep practicing to set new records.</Text>
         <View style={Style.shareButtons}>
           <TouchableOpacity
@@ -159,15 +159,15 @@ class Modal extends Component {
 
 const mapStateToProps = state => ({
   modalVisible: state.question.modalVisible,
-  points: state.question.points,
+  score: state.question.score,
 });
 
 const mapDispatchToProps = dispatch => ({
   answerQuestion: (value) => {
     dispatch(answerQuestion(value));
   },
-  updatePoints: (value) => {
-    dispatch(updatePoints(value));
+  updateScore: (value) => {
+    dispatch(updateScore(value));
   },
   updateLives: (value) => {
     dispatch(updateLives(value));

@@ -18,7 +18,7 @@ import {
 
 import {
   answerQuestion,
-  updatePoints,
+  updateScore,
   updateLives,
   modalVisibility,
   updateModalType,
@@ -87,10 +87,23 @@ class Question extends Component {
   newQuestion() {
     const {
       operation,
-      answerQuestion
+      answerQuestion,
+      score
     } = this.props;
 
-    const ranges = this.rangeByLevel();
+    let ranges;
+
+    if(score < 400) {
+      ranges = this.rangeByLevel();
+    } else if(score >= 400 && score < 700) {
+      ranges = this.rangeByLevel(40,35);
+    } else if(score >= 700 && score < 1100) {
+      ranges = this.rangeByLevel(60,50);
+    } else if(score >= 1100 && score < 1500) {
+      ranges = this.rangeByLevel(100,100);
+    } else if(score >= 1500) {
+      ranges = this.rangeByLevel(200,200);
+    }
 
     answerQuestion(true);
 
@@ -139,11 +152,11 @@ class Question extends Component {
 
     switch(operation) {
       case 'Division':
-        range2 = 3;
+        range2 = range2 / 5;
       break;
       case 'Multiplication':
-        range1 = 10
-        range2 = 3;
+        range1 = range1 / 2;
+        range2 = range2 / 5;
       break;
     }
 
@@ -154,7 +167,7 @@ class Question extends Component {
     const {
       operation,
       navigation,
-      points,
+      score,
       lives,
       modalVisible,
       modalVisibility,
@@ -185,7 +198,7 @@ class Question extends Component {
               style={CommonStyle.backButton}
               activeOpacity={0.4}
               onPress={() => {
-                if(points > 0) {
+                if(score > 0) {
                   modalVisibility(true)
                 } else {
                   navigation.goBack();
@@ -205,7 +218,7 @@ class Question extends Component {
               />
 
               <View style={Style.details}>
-                <Text style={Style.counter}>{points}{' pts'}</Text>
+                <Text style={Style.counter}>{score}{' pts'}</Text>
                 <View style={Style.hearts}>
                     { [1,2,3].map((item, index) => {
                         return  <Image
@@ -257,7 +270,7 @@ class Question extends Component {
 
 const mapStateToProps = state => ({
   operation: state.main.operation,
-  points: state.question.points,
+  score: state.question.score,
   lives: state.question.lives,
   modalVisible: state.question.modalVisible,
   modalType: state.question.modalType,
@@ -267,8 +280,8 @@ const mapDispatchToProps = dispatch => ({
   answerQuestion: (value) => {
     dispatch(answerQuestion(value));
   },
-  updatePoints: (value) => {
-    dispatch(updatePoints(value));
+  updateScore: (value) => {
+    dispatch(updateScore(value));
   },
   updateLives: (value) => {
     dispatch(updateLives(value));

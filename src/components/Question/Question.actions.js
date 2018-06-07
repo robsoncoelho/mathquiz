@@ -1,6 +1,6 @@
 import {
   ANSWERED_QUESTION,
-  UPDATE_POINTS,
+  UPDATE_SCORE,
   UPDATE_LIVES,
   MODAL_VISIBILITY,
   MODAL_TYPE,
@@ -15,10 +15,10 @@ export function answerQuestion(boolean) {
   };
 }
 
-export function updatePoints(value) {
+export function updateScore(value) {
   return (dispatch, getStore) => {
     dispatch({
-      type: UPDATE_POINTS,
+      type: UPDATE_SCORE,
       payload: value,
     });
   };
