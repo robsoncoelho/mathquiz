@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image, TouchableOpacity } from 'react-native';
+import { View, Text, Image, TouchableOpacity, Share } from 'react-native';
 import { connect } from 'react-redux';
 import {
   answerQuestion,
@@ -21,6 +21,22 @@ class Modal extends Component {
     this.confirmRestart = this.confirmRestart.bind(this);
     this.quitPopUpTemplate = this.quitPopUpTemplate.bind(this);
     this.restartPopUpTemplate = this.restartPopUpTemplate.bind(this);
+    this.shareContent = this.shareContent.bind(this);
+  }
+
+  shareContent() {
+    const {
+      points
+    } = this.props;
+
+    Share.share({
+      message: `My new score in the Division Math Operation is ${points} MathQuiz: URL DA STORE`,
+      url: 'URL DA APP STORE',
+      title: 'My new MathQuiz score'
+    }, {
+      // Android only:
+      dialogTitle: `My new MathQuiz score is ${points}.`,
+    })
   }
 
   confirmQuit() {
@@ -106,19 +122,13 @@ class Modal extends Component {
           />
         </View>
         <Text style={[Style.popupTitle]}>Your new score is: {points}</Text>
-        <Text style={Style.popupMessage}>This is a great result, share with your friends and keep practicing to set new records.</Text>
+        <Text style={Style.popupMessage}>This is a great score, share with your friends and keep practicing to set new records.</Text>
         <View style={Style.shareButtons}>
           <TouchableOpacity
             style={[Style.shareButton, {backgroundColor: '#3B5998'}]}
             activeOpacity={0.2}
-            onPress={() => {  }}>
-            <Text style={Style.shareText}>Share on Facebook</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={[Style.shareButton, {backgroundColor: '#1DA1F2'}]}
-            activeOpacity={0.2}
-            onPress={() => {  }}>
-            <Text style={Style.shareText}>Share on Twitter</Text>
+            onPress={() => { this.shareContent() }}>
+            <Text style={Style.shareText}>Share with your friends</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={[Style.shareButton, {backgroundColor: '#FFB717'}]}
