@@ -7,6 +7,7 @@ export default MediaQueryStyleSheet.create({
     	marginTop: PADDING.TOP,
     	alignItems: 'center',
       flexDirection: 'column',
+      height: WINDOW_HEIGHT
   	},
     imageBackground: {
     	width: '100%',

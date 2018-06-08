@@ -31,8 +31,8 @@ import CommonStyle from '../common/style';
 import Style from './style';
 
 let bg_page,
-    icon_operation,
-    randomAnswers = [];
+    countDownInterval,
+    icon_operation;
 
 class Question extends Component {
   constructor(props) {
@@ -41,12 +41,15 @@ class Question extends Component {
       firstValue: 0,
       secondValue: 0,
       result: 0,
+      countDown: 10,
+      questions: [],
     }
 
     this.setBackgroundPage = this.setBackgroundPage.bind(this);
     this.generateRandomAnswers = this.generateRandomAnswers.bind(this);
     this.newQuestion = this.newQuestion.bind(this);
     this.rangeByLevel = this.rangeByLevel.bind(this);
+    this.startCountDown = this.startCountDown.bind(this);
   }
 
   componentWillMount() {
@@ -55,10 +58,19 @@ class Question extends Component {
     this.props.modalVisibility(false);
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    return  this.state.firstValue !== nextState.firstValue ||
-            this.state.secondValue !== nextState.secondValue ||
-            this.props.modalVisible !== nextProps.modalVisible;
+  componentWillUnmount() {
+    clearInterval(countDownInterval);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const { lives, score, modalVisible } = this.props;
+    if(lives !== prevProps.lives || score !== prevProps.score) {
+      clearInterval(countDownInterval);
+    }
+
+    if(modalVisible !== prevProps.modalVisible && lives === 3) {
+      this.startCountDown(false);
+    }
   }
 
   setBackgroundPage() {
@@ -84,11 +96,45 @@ class Question extends Component {
     }
   }
 
+  startCountDown(reset = false) {
+    const { countDown } = this.state;
+    const {
+      answerQuestion,
+      updateLives,
+      lives,
+      updateModalType,
+      modalVisibility,
+    } = this.props;
+
+    if(reset) {
+      clearInterval(countDownInterval);
+      this.setState({'countDown': 10});
+    }
+
+    countDownInterval = setInterval(() => {
+      if (this.state.countDown < 1) {
+        clearInterval(countDownInterval);
+        answerQuestion(false);
+        updateLives(lives - 1);
+        if(lives - 1 === 0) {
+          updateModalType('RESTART');
+          modalVisibility(true);
+          answerQuestion(true);
+        } else {
+          this.newQuestion();
+        }
+      } else {
+        this.setState({'countDown': this.state.countDown - 1});
+      }
+    }, 1000)
+  }
+
   newQuestion() {
     const {
       operation,
       answerQuestion,
-      score
+      score,
+      lives
     } = this.props;
 
     let ranges;
@@ -138,6 +184,18 @@ class Question extends Component {
     this.setState({ result: result })
     this.setState({ firstValue: value1 })
     this.setState({ secondValue: value2 })
+    this.startCountDown(true);
+
+    let randomAnswers = [];
+
+    [1,2,3].forEach(() => {
+      randomAnswers.push(this.generateRandomAnswers(result, randomAnswers));
+    })
+
+    randomAnswers.push(result);
+    randomAnswers = randomAnswers.sort((a, b) => 0.5 - Math.random());
+
+    this.setState({ questions: randomAnswers })
   }
 
   generateRandomAnswers(result, existedNumbers) {
@@ -177,19 +235,10 @@ class Question extends Component {
     const {
       firstValue,
       secondValue,
-      result
+      result,
+      countDown,
+      questions
     } = this.state;
-
-    if(lives !== 0) {
-      randomAnswers = [];
-
-      [1,2,3].forEach(() => {
-        randomAnswers.push(this.generateRandomAnswers(result, randomAnswers));
-      })
-
-      randomAnswers.push(result);
-      randomAnswers = randomAnswers.sort((a, b) => 0.5 - Math.random());
-    }
 
     return (
       <ImageBackground source={bg_page} style={CommonStyle.imageBackground}>
@@ -203,6 +252,7 @@ class Question extends Component {
                 } else {
                   navigation.goBack();
                 }
+                clearInterval(countDownInterval);
               }}>
               <Image
                 style={CommonStyle.backImage}
@@ -242,7 +292,7 @@ class Question extends Component {
               <Text style={Style.number}>{secondValue}</Text>
             </View>
             <View style={Style.buttons}>
-              { randomAnswers.map((item, index) => {
+              { questions.map((item, index) => {
                   return <Button
                           key={index}
                           value={item}
@@ -251,6 +301,7 @@ class Question extends Component {
                 })
               }
             </View>
+            <Text style={Style.countDown}>{'00:'}{(countDown < 10 ? `0${countDown}`: `${countDown}`)}</Text>
           </View>
           <Modal
             animationInTiming={400}

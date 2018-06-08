@@ -95,6 +95,12 @@ export default MediaQueryStyleSheet.create({
 		color: COLOR.WHITE,
 		fontSize: 22
 	},
+	countDown: {
+		color: COLOR.WHITE,
+		position: 'absolute',
+		fontSize: 20,
+		bottom: 50
+	},
 	modal: {
 		alignItems: 'center'
 	},
