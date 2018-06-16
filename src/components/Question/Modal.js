@@ -10,17 +10,16 @@ import {
 } from 'react-native';
 
 import {
+  AdMobInterstitial,
+} from 'react-native-admob';
+
+import {
   answerQuestion,
   updateScore,
   updateLives,
   modalVisibility,
   updateModalType,
 } from './Question.actions';
-
-import {
-  showAdMob
-} from '../Main/Main.actions';
-
 
 import { COLOR } from '../common/variables';
 import Style from './style';
@@ -29,12 +28,15 @@ class Modal extends Component {
   constructor(props) {
     super(props);
 
-    this.confirmQuit = this.confirmQuit.bind(this);
     this.confirmRestart = this.confirmRestart.bind(this);
     this.quitPopUpTemplate = this.quitPopUpTemplate.bind(this);
     this.restartPopUpTemplate = this.restartPopUpTemplate.bind(this);
     this.noScorePopUpTemplate = this.noScorePopUpTemplate.bind(this);
     this.shareContent = this.shareContent.bind(this);
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.props.type !== nextProps.type;
   }
 
   shareContent() {
@@ -67,11 +69,13 @@ class Modal extends Component {
 
     setTimeout(()=> {
       navigation.goBack();
-      showAdMob(true);
       answerQuestion(true);
       updateModalType('QUIT');
       updateScore(0);
       updateLives(3);
+      AdMobInterstitial
+        .requestAd()
+        .then(() => AdMobInterstitial.showAd());
     }, 400)
   }
 
@@ -108,7 +112,7 @@ class Modal extends Component {
           <TouchableOpacity
             style={Style.popupButton}
             activeOpacity={0.4}
-            onPress={() => { this.confirmQuit() }}>
+            onPress={() => { this.confirmQuit.bind(this) }}>
             <Text style={Style.popupMessage}>CONFIRM</Text>
           </TouchableOpacity>
         </View>
@@ -182,6 +186,8 @@ class Modal extends Component {
       score
     } = this.props;
 
+    console.log(type)
+
     switch(type) {
       case 'QUIT':
         return this.quitPopUpTemplate()
@@ -218,10 +224,7 @@ const mapDispatchToProps = dispatch => ({
   },
   updateModalType: (value) => {
     dispatch(updateModalType(value));
-  },
-  showAdMob: (value) => {
-    dispatch(showAdMob(value));
-  },
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Modal);
