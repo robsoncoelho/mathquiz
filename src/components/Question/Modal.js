@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
-import { View, Text, Image, TouchableOpacity, Share } from 'react-native';
 import { connect } from 'react-redux';
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  Share,
+  Platform
+} from 'react-native';
+
 import {
   answerQuestion,
   updateScore,
@@ -9,8 +17,12 @@ import {
   updateModalType,
 } from './Question.actions';
 
-import { COLOR } from '../common/variables';
+import {
+  showAdMob
+} from '../Main/Main.actions';
 
+
+import { COLOR } from '../common/variables';
 import Style from './style';
 
 class Modal extends Component {
@@ -27,11 +39,12 @@ class Modal extends Component {
 
   shareContent() {
     const {
-      score
+      score,
+      operation
     } = this.props;
 
     Share.share({
-      message: `My new score in the Division Math Operation is ${score} MathQuiz: URL DA STORE`,
+      message: `My new score in the ${operation} Math Operation is ${score} MathQuiz: URL DA STORE`,
       url: 'URL DA APP STORE',
       title: 'My new MathQuiz score'
     }, {
@@ -54,6 +67,7 @@ class Modal extends Component {
 
     setTimeout(()=> {
       navigation.goBack();
+      showAdMob(true);
       answerQuestion(true);
       updateModalType('QUIT');
       updateScore(0);
@@ -148,7 +162,7 @@ class Modal extends Component {
         <View style={Style.stars}>
           <Text style={[Style.popupTitleLarge]}>Ops!</Text>
         </View>
-        <Text style={[Style.popupTitle]}>You didn't go so fine this time.</Text>
+        <Text style={[Style.popupTitle]}>You didn't go very well this time.</Text>
         <Text style={Style.popupMessage}>Come on, try again and show how you can go better now!</Text>
         <View style={Style.shareButtons}>
           <TouchableOpacity
@@ -186,6 +200,7 @@ class Modal extends Component {
 const mapStateToProps = state => ({
   modalVisible: state.question.modalVisible,
   score: state.question.score,
+  operation: state.main.operation
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -203,6 +218,9 @@ const mapDispatchToProps = dispatch => ({
   },
   updateModalType: (value) => {
     dispatch(updateModalType(value));
+  },
+  showAdMob: (value) => {
+    dispatch(showAdMob(value));
   },
 });
 

@@ -353,9 +353,9 @@
                 "to": {
                     "startLine": 2,
                     "startColumn": 4,
-                    "startOffset": 55,
+                    "startOffset": 105,
                     "endColumn": 94,
-                    "endOffset": 145
+                    "endOffset": 195
                 },
                 "from": {
                     "file": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values-zh-rTW/values-zh-rTW.xml",
@@ -372,9 +372,9 @@
                 "to": {
                     "startLine": 3,
                     "startColumn": 4,
-                    "startOffset": 150,
+                    "startOffset": 200,
                     "endColumn": 106,
-                    "endOffset": 252
+                    "endOffset": 302
                 },
                 "from": {
                     "file": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values-zh-rTW/values-zh-rTW.xml",
@@ -391,9 +391,9 @@
                 "to": {
                     "startLine": 4,
                     "startColumn": 4,
-                    "startOffset": 257,
+                    "startOffset": 307,
                     "endColumn": 122,
-                    "endOffset": 375
+                    "endOffset": 425
                 },
                 "from": {
                     "file": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values-zh-rTW/values-zh-rTW.xml",
@@ -410,9 +410,9 @@
                 "to": {
                     "startLine": 5,
                     "startColumn": 4,
-                    "startOffset": 380,
+                    "startOffset": 430,
                     "endColumn": 92,
-                    "endOffset": 468
+                    "endOffset": 518
                 },
                 "from": {
                     "file": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values-zh-rTW/values-zh-rTW.xml",
@@ -429,9 +429,9 @@
                 "to": {
                     "startLine": 6,
                     "startColumn": 4,
-                    "startOffset": 473,
+                    "startOffset": 523,
                     "endColumn": 99,
-                    "endOffset": 568
+                    "endOffset": 618
                 },
                 "from": {
                     "file": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values-zh-rTW/values-zh-rTW.xml",
@@ -448,9 +448,9 @@
                 "to": {
                     "startLine": 7,
                     "startColumn": 4,
-                    "startOffset": 573,
+                    "startOffset": 623,
                     "endColumn": 81,
-                    "endOffset": 650
+                    "endOffset": 700
                 },
                 "from": {
                     "file": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values-zh-rTW/values-zh-rTW.xml",
@@ -467,9 +467,9 @@
                 "to": {
                     "startLine": 8,
                     "startColumn": 4,
-                    "startOffset": 655,
+                    "startOffset": 705,
                     "endColumn": 96,
-                    "endOffset": 747
+                    "endOffset": 797
                 },
                 "from": {
                     "file": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values-zh-rTW/values-zh-rTW.xml",
@@ -486,9 +486,9 @@
                 "to": {
                     "startLine": 9,
                     "startColumn": 4,
-                    "startOffset": 752,
+                    "startOffset": 802,
                     "endColumn": 107,
-                    "endOffset": 855
+                    "endOffset": 905
                 },
                 "from": {
                     "file": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values-zh-rTW/values-zh-rTW.xml",
@@ -505,9 +505,9 @@
                 "to": {
                     "startLine": 10,
                     "startColumn": 4,
-                    "startOffset": 860,
+                    "startOffset": 910,
                     "endColumn": 77,
-                    "endOffset": 933
+                    "endOffset": 983
                 },
                 "from": {
                     "file": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values-zh-rTW/values-zh-rTW.xml",
@@ -524,9 +524,9 @@
                 "to": {
                     "startLine": 11,
                     "startColumn": 4,
-                    "startOffset": 938,
+                    "startOffset": 988,
                     "endColumn": 95,
-                    "endOffset": 1029
+                    "endOffset": 1079
                 },
                 "from": {
                     "file": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values-zh-rTW/values-zh-rTW.xml",
@@ -543,9 +543,9 @@
                 "to": {
                     "startLine": 12,
                     "startColumn": 4,
-                    "startOffset": 1034,
+                    "startOffset": 1084,
                     "endColumn": 95,
-                    "endOffset": 1125
+                    "endOffset": 1175
                 },
                 "from": {
                     "file": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values-zh-rTW/values-zh-rTW.xml",
@@ -562,9 +562,9 @@
                 "to": {
                     "startLine": 13,
                     "startColumn": 4,
-                    "startOffset": 1130,
+                    "startOffset": 1180,
                     "endColumn": 94,
-                    "endOffset": 1220
+                    "endOffset": 1270
                 },
                 "from": {
                     "file": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values-zh-rTW/values-zh-rTW.xml",
@@ -581,9 +581,9 @@
                 "to": {
                     "startLine": 14,
                     "startColumn": 4,
-                    "startOffset": 1225,
+                    "startOffset": 1275,
                     "endColumn": 96,
-                    "endOffset": 1317
+                    "endOffset": 1367
                 },
                 "from": {
                     "file": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values-zh-rTW/values-zh-rTW.xml",
@@ -600,9 +600,9 @@
                 "to": {
                     "startLine": 15,
                     "startColumn": 4,
-                    "startOffset": 1322,
+                    "startOffset": 1372,
                     "endColumn": 94,
-                    "endOffset": 1412
+                    "endOffset": 1462
                 },
                 "from": {
                     "file": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values-zh-rTW/values-zh-rTW.xml",
@@ -619,9 +619,9 @@
                 "to": {
                     "startLine": 16,
                     "startColumn": 4,
-                    "startOffset": 1417,
+                    "startOffset": 1467,
                     "endColumn": 99,
-                    "endOffset": 1512
+                    "endOffset": 1562
                 },
                 "from": {
                     "file": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values-zh-rTW/values-zh-rTW.xml",
@@ -638,9 +638,9 @@
                 "to": {
                     "startLine": 17,
                     "startColumn": 4,
-                    "startOffset": 1517,
+                    "startOffset": 1567,
                     "endColumn": 112,
-                    "endOffset": 1625
+                    "endOffset": 1675
                 },
                 "from": {
                     "file": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values-zh-rTW/values-zh-rTW.xml",
@@ -657,9 +657,9 @@
                 "to": {
                     "startLine": 18,
                     "startColumn": 4,
-                    "startOffset": 1630,
+                    "startOffset": 1680,
                     "endColumn": 93,
-                    "endOffset": 1719
+                    "endOffset": 1769
                 },
                 "from": {
                     "file": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values-zh-rTW/values-zh-rTW.xml",
@@ -676,9 +676,161 @@
                 "to": {
                     "startLine": 19,
                     "startColumn": 4,
-                    "startOffset": 1724,
+                    "startOffset": 1774,
+                    "endColumn": 161,
+                    "endOffset": 1931
+                },
+                "from": {
+                    "file": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/15.0.1/res/values-zh-rTW/values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 0,
+                        "startOffset": 251,
+                        "endColumn": 161,
+                        "endOffset": 412
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 20,
+                    "startColumn": 4,
+                    "startOffset": 1936,
+                    "endColumn": 64,
+                    "endOffset": 1996
+                },
+                "from": {
+                    "file": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/15.0.1/res/values-zh-rTW/values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 0,
+                        "startOffset": 201,
+                        "endColumn": 60,
+                        "endOffset": 261
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 21,
+                    "startColumn": 4,
+                    "startOffset": 2001,
+                    "endColumn": 78,
+                    "endOffset": 2075
+                },
+                "from": {
+                    "file": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/15.0.1/res/values-zh-rTW/values.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 0,
+                        "startOffset": 262,
+                        "endColumn": 74,
+                        "endOffset": 336
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 22,
+                    "startColumn": 4,
+                    "startOffset": 2080,
+                    "endColumn": 63,
+                    "endOffset": 2139
+                },
+                "from": {
+                    "file": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/15.0.1/res/values-zh-rTW/values.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 0,
+                        "startOffset": 337,
+                        "endColumn": 59,
+                        "endOffset": 396
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 23,
+                    "startColumn": 4,
+                    "startOffset": 2144,
+                    "endColumn": 63,
+                    "endOffset": 2203
+                },
+                "from": {
+                    "file": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/15.0.1/res/values-zh-rTW/values.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 0,
+                        "startOffset": 397,
+                        "endColumn": 59,
+                        "endOffset": 456
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 24,
+                    "startColumn": 4,
+                    "startOffset": 2208,
+                    "endColumn": 67,
+                    "endOffset": 2271
+                },
+                "from": {
+                    "file": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/15.0.1/res/values-zh-rTW/values.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 0,
+                        "startOffset": 457,
+                        "endColumn": 63,
+                        "endOffset": 520
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 25,
+                    "startColumn": 4,
+                    "startOffset": 2276,
+                    "endColumn": 74,
+                    "endOffset": 2346
+                },
+                "from": {
+                    "file": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/15.0.1/res/values-zh-rTW/values.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 0,
+                        "startOffset": 521,
+                        "endColumn": 70,
+                        "endOffset": 591
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 26,
+                    "startColumn": 4,
+                    "startOffset": 2351,
+                    "endColumn": 65,
+                    "endOffset": 2412
+                },
+                "from": {
+                    "file": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/15.0.1/res/values-zh-rTW/values.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 0,
+                        "startOffset": 592,
+                        "endColumn": 61,
+                        "endOffset": 653
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 27,
+                    "startColumn": 4,
+                    "startOffset": 2417,
                     "endColumn": 100,
-                    "endOffset": 1820
+                    "endOffset": 2513
                 },
                 "from": {
                     "file": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values-zh-rTW/values-zh-rTW.xml",

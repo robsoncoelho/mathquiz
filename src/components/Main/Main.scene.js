@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import {
   View,
   Text,
@@ -7,8 +9,14 @@ import {
   Image,
   ImageBackground,
   TouchableOpacity,
-  Dimensions
+  Dimensions,
+  Platform,
+  DeviceEventEmitter
 } from 'react-native';
+
+import {
+  AdMobInterstitial,
+} from 'react-native-admob';
 
 import {
   LOGO,
@@ -21,9 +29,16 @@ import Button from './Button';
 import CommonStyle from '../common/style';
 import Style from './style';
 
+const adUnitID = (Platform.OS === 'ios' ? 'ca-app-pub-8489622876114568/6502755444' : 'ca-app-pub-8489622876114568/6629488771');
+
 class Main extends Component {
   constructor(props) {
     super(props);
+  }
+
+  componentDidMount() {
+    AdMobInterstitial.setAdUnitID(adUnitID);
+    AdMobInterstitial.setTestDevices([AdMobInterstitial.simulatorId]);
   }
 
   render() {
@@ -48,5 +63,6 @@ class Main extends Component {
     );
   }
 }
+
 
 export default Main;

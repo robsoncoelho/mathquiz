@@ -5,7 +5,7 @@ import {
   Text,
   Image,
   ImageBackground,
-  TouchableOpacity,
+  TouchableOpacity
 } from 'react-native';
 
 import {
@@ -68,7 +68,8 @@ class Question extends Component {
       clearInterval(countDownInterval);
     }
 
-    if(modalVisible !== prevProps.modalVisible && lives === 3) {
+    if((modalVisible !== prevProps.modalVisible) && (lives === 3 && lives !== prevProps.lives)) {
+      this.setState({ countDown: 10 });
       this.startCountDown(false);
     }
   }
@@ -108,7 +109,6 @@ class Question extends Component {
 
     if(reset) {
       clearInterval(countDownInterval);
-      this.setState({'countDown': 10});
     }
 
     countDownInterval = setInterval(() => {
@@ -184,6 +184,7 @@ class Question extends Component {
     this.setState({ result: result })
     this.setState({ firstValue: value1 })
     this.setState({ secondValue: value2 })
+    this.setState({ countDown: 10 });
     this.startCountDown(true);
 
     let randomAnswers = [];
@@ -242,79 +243,78 @@ class Question extends Component {
 
     return (
       <ImageBackground source={bg_page} style={CommonStyle.imageBackground}>
-          <View style={CommonStyle.content}>
-            <TouchableOpacity
-              style={CommonStyle.backButton}
-              activeOpacity={0.4}
-              onPress={() => {
-                if(score > 0) {
-                  modalVisibility(true)
-                } else {
-                  navigation.goBack();
-                }
-                clearInterval(countDownInterval);
-              }}>
-              <Image
-                style={CommonStyle.backImage}
-                resizeMode={'contain'}
-                source={BACK_BUTTON}
-              />
-            </TouchableOpacity>
-            <View style={Style.header}>
-              <Image
-                style={Style.logoSmall}
-                resizeMode={'contain'}
-                source={LOGO_SMALL}
-              />
+        <View style={CommonStyle.content}>
+          <TouchableOpacity
+            style={CommonStyle.backButton}
+            activeOpacity={0.4}
+            onPress={() => {
+              if(score > 0) {
+                modalVisibility(true)
+              } else {
+                navigation.goBack();
+              }
+            }}>
+            <Image
+              style={CommonStyle.backImage}
+              resizeMode={'contain'}
+              source={BACK_BUTTON}
+            />
+          </TouchableOpacity>
+          <View style={Style.header}>
+            <Image
+              style={Style.logoSmall}
+              resizeMode={'contain'}
+              source={LOGO_SMALL}
+            />
 
-              <View style={Style.details}>
-                <Text style={Style.counter}>{score}{' pts'}</Text>
-                <View style={Style.hearts}>
-                    { [1,2,3].map((item, index) => {
-                        return  <Image
-                                  key={index}
-                                  style={Style.iconHeart}
-                                  resizeMode={'contain'}
-                                  source={(index >= lives ? ICON_HEART : ICON_HEART_WHITE) } />
-                      })
-                    }
-                </View>
+            <View style={Style.details}>
+              <Text style={Style.counter}>{score}{' pts'}</Text>
+              <View style={Style.hearts}>
+                  { [1,2,3].map((item, index) => {
+                      return  <Image
+                                key={index}
+                                style={Style.iconHeart}
+                                resizeMode={'contain'}
+                                source={(index >= lives ? ICON_HEART : ICON_HEART_WHITE) } />
+                    })
+                  }
               </View>
             </View>
-            <Text style={Style.title}>{operation}</Text>
-            <View style={Style.question}>
-              <Text style={Style.number}>{firstValue}</Text>
-              <Image
-                style={Style.iconOperation}
-                resizeMode={'contain'}
-                source={icon_operation}
-              />
-              <Text style={Style.number}>{secondValue}</Text>
-            </View>
-            <View style={Style.buttons}>
-              { questions.map((item, index) => {
-                  return <Button
-                          key={index}
-                          value={item}
-                          newQuestion={this.newQuestion}
-                          correctAnswer={(result === item ? true : false)} />
-                })
-              }
-            </View>
-            <Text style={Style.countDown}>{'00:'}{(countDown < 10 ? `0${countDown}`: `${countDown}`)}</Text>
           </View>
-          <Modal
-            animationInTiming={400}
-            animationOutTiming={400}
-            useNativeDriver={true}
-            backdropOpacity={0.8}
-            style={Style.modal}
-            isVisible={modalVisible}>
-            <ModalTemplate
-              type={modalType}
-              navigation={navigation} />
-          </Modal>
-        </ImageBackground>
+          <Text style={Style.title}>{operation}</Text>
+          <View style={Style.question}>
+            <Text style={Style.number}>{firstValue}</Text>
+            <Image
+              style={Style.iconOperation}
+              resizeMode={'contain'}
+              source={icon_operation}
+            />
+            <Text style={Style.number}>{secondValue}</Text>
+          </View>
+          <View style={Style.buttons}>
+            { questions.map((item, index) => {
+                return <Button
+                        key={index}
+                        value={item}
+                        newQuestion={this.newQuestion}
+                        correctAnswer={(result === item ? true : false)} />
+              })
+            }
+          </View>
+          <Text style={Style.countDown}>{'00:'}{(countDown < 10 ? `0${countDown}`: `${countDown}`)}</Text>
+        </View>
+        <Modal
+          animationInTiming={400}
+          animationOutTiming={400}
+          useNativeDriver={true}
+          backdropOpacity={0.8}
+          style={Style.modal}
+          isVisible={modalVisible}>
+          <ModalTemplate
+            type={modalType}
+            navigation={navigation} />
+        </Modal>
+      </ImageBackground>
     );
   }
 }
