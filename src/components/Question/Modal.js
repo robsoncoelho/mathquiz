@@ -21,6 +21,10 @@ import {
   updateModalType,
 } from './Question.actions';
 
+import {
+  countAdMobInterval,
+} from '../Main/Main.actions';
+
 import { COLOR } from '../common/variables';
 import Style from './style';
 
@@ -29,6 +33,7 @@ class Modal extends Component {
     super(props);
 
     this.confirmRestart = this.confirmRestart.bind(this);
+    this.confirmQuit = this.confirmQuit.bind(this);
     this.quitPopUpTemplate = this.quitPopUpTemplate.bind(this);
     this.restartPopUpTemplate = this.restartPopUpTemplate.bind(this);
     this.noScorePopUpTemplate = this.noScorePopUpTemplate.bind(this);
@@ -63,6 +68,8 @@ class Modal extends Component {
       navigation,
       modalVisibility,
       updateModalType,
+      adMobInterval,
+      countAdMobInterval,
     } = this.props;
 
     modalVisibility(false);
@@ -73,9 +80,13 @@ class Modal extends Component {
       updateModalType('QUIT');
       updateScore(0);
       updateLives(3);
-      AdMobInterstitial
-        .requestAd()
-        .then(() => AdMobInterstitial.showAd());
+      countAdMobInterval(adMobInterval-1);
+      if(adMobInterval === 0) {
+        countAdMobInterval(3);
+        AdMobInterstitial
+          .requestAd()
+          .then(() => AdMobInterstitial.showAd());
+      }
     }, 400)
   }
 
@@ -112,7 +123,7 @@ class Modal extends Component {
           <TouchableOpacity
             style={Style.popupButton}
             activeOpacity={0.4}
-            onPress={() => { this.confirmQuit.bind(this) }}>
+            onPress={() => this.confirmQuit() }>
             <Text style={Style.popupMessage}>CONFIRM</Text>
           </TouchableOpacity>
         </View>
@@ -186,8 +197,6 @@ class Modal extends Component {
       score
     } = this.props;
 
-    console.log(type)
-
     switch(type) {
       case 'QUIT':
         return this.quitPopUpTemplate()
@@ -206,7 +215,8 @@ class Modal extends Component {
 const mapStateToProps = state => ({
   modalVisible: state.question.modalVisible,
   score: state.question.score,
-  operation: state.main.operation
+  operation: state.main.operation,
+  adMobInterval: state.main.adMobInterval
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -224,6 +234,9 @@ const mapDispatchToProps = dispatch => ({
   },
   updateModalType: (value) => {
     dispatch(updateModalType(value));
+  },
+  countAdMobInterval: (value) => {
+    dispatch(countAdMobInterval(value));
   }
 });
 

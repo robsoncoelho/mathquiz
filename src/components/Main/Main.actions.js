@@ -1,6 +1,6 @@
 import {
   SET_OPERATION_TYPE,
-  SHOW_AD_MOB
+  COUNT_AD_MOB_INTERVAL
 } from '../../config/actionTypes';
 
 export function setOperationType(operation) {
@@ -12,11 +12,13 @@ export function setOperationType(operation) {
   };
 }
 
-export function showAdMob(bool) {
+export function countAdMobInterval(count) {
   return (dispatch, getStore) => {
     dispatch({
-      type: SHOW_AD_MOB,
-      payload: bool,
+      type: COUNT_AD_MOB_INTERVAL,
+      payload: count,
     });
   };
 }
+
+

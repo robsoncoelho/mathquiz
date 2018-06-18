@@ -4,4 +4,4 @@ export const UPDATE_SCORE = 'UPDATE_SCORE';
 export const UPDATE_LIVES = 'UPDATE_LIVES';
 export const MODAL_VISIBILITY = 'MODAL_VISIBILITY';
 export const MODAL_TYPE = 'MODAL_TYPE';
-export const SHOW_AD_MOB = 'SHOW_AD_MOB';
+export const COUNT_AD_MOB_INTERVAL = 'COUNT_AD_MOB_INTERVAL';
