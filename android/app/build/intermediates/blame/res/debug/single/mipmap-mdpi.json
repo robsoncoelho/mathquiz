@@ -2,9 +2,5 @@
     {
         "merged": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/res/merged/debug/mipmap-mdpi/ic_launcher.png",
         "source": "/Users/ironman/Documents/projects/mathquiz/android/app/src/main/res/mipmap-mdpi/ic_launcher.png"
-    },
-    {
-        "merged": "/Users/ironman/Documents/projects/react-native-boilerplate/android/app/build/intermediates/res/merged/debug/mipmap-mdpi/ic_launcher.png",
-        "source": "/Users/ironman/Documents/projects/react-native-boilerplate/android/app/src/main/res/mipmap-mdpi/ic_launcher.png"
     }
 ]

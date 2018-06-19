@@ -1,9 +1,5 @@
 [
     {
-        "merged": "/Users/ironman/Documents/projects/react-native-boilerplate/android/app/build/intermediates/res/merged/debug/xml/preferences.xml",
-        "source": "/Users/ironman/Documents/projects/react-native-boilerplate/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.54.4/res/xml/preferences.xml"
-    },
-    {
         "merged": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/res/merged/debug/xml/preferences.xml",
         "source": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.54.4/res/xml/preferences.xml"
     }
