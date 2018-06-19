@@ -24,6 +24,10 @@ import {
   updateModalType,
 } from './Question.actions';
 
+import {
+  AdMobBanner,
+} from 'react-native-admob';
+
 import Button from './Button';
 import ModalTemplate from './Modal';
 import Modal from 'react-native-modal';
@@ -314,6 +318,14 @@ class Question extends Component {
             type={modalType}
             navigation={navigation} />
         </Modal>
+        {/*
+        <AdMobBanner
+          adSize="banner"
+          adUnitID='ca-app-pub-8489622876114568/8527273230'
+          testDevices={[AdMobBanner.simulatorId]}
+          onAdFailedToLoad={error => console.error(error)}
+        />
+        */}
       </ImageBackground>
     );
   }
