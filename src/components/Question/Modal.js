@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import I18n from 'react-native-i18n';
 import {
   View,
   Text,
@@ -28,6 +29,13 @@ import {
 import { COLOR } from '../common/variables';
 import Style from './style';
 
+I18n.fallbacks = true;
+
+I18n.translations = {
+  'en': require('../../translations/en'),
+  'pt': require('../../translations/pt'),
+};
+
 class Modal extends Component {
   constructor(props) {
     super(props);
@@ -51,12 +59,12 @@ class Modal extends Component {
     } = this.props;
 
     Share.share({
-      message: `My new score in the ${operation} Math Operation is ${score} MathQuiz: URL DA STORE`,
+      message: I18n.t(`modal score result`, { operation: operation, score: score }),
       url: 'URL DA APP STORE',
-      title: 'My new MathQuiz score'
+      title: I18n.t(`My new MathQuiz score`)
     }, {
       // Android only:
-      dialogTitle: `My new MathQuiz score is ${score}.`,
+      dialogTitle: I18n.t(`modal score result android title`, { score: score }),
     })
   }
 
@@ -111,20 +119,20 @@ class Modal extends Component {
 
     return (
       <View style={Style.popup}>
-        <Text style={Style.popupTitle}>Are you sure you want to quit?</Text>
-        <Text style={Style.popupMessage}>Your score will be canceled.</Text>
+        <Text style={Style.popupTitle}>{I18n.t(`Are you sure you want to quit?`)}</Text>
+        <Text style={Style.popupMessage}>{I18n.t(`Your score will be canceled`)}</Text>
         <View style={Style.popupButtons}>
           <TouchableOpacity
             style={Style.popupButton}
             activeOpacity={0.4}
             onPress={() => { modalVisibility(false) }}>
-            <Text style={Style.popupMessage}>CANCEL</Text>
+            <Text style={Style.popupMessage}>{I18n.t(`cancel`)}</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={Style.popupButton}
             activeOpacity={0.4}
             onPress={() => this.confirmQuit() }>
-            <Text style={Style.popupMessage}>CONFIRM</Text>
+            <Text style={Style.popupMessage}>{I18n.t(`confirm`)}</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -144,27 +152,27 @@ class Modal extends Component {
             resizeMode={'contain'}
             source={require('../../assets/images/stars_left.png')}
           />
-          <Text style={[Style.popupTitleLarge]}>Congratulations</Text>
+          <Text style={[Style.popupTitleLarge]}>{I18n.t(`Congratulations`)}</Text>
           <Image
             style={Style.iconStar}
             resizeMode={'contain'}
             source={require('../../assets/images/stars_right.png')}
           />
         </View>
-        <Text style={[Style.popupTitle]}>Your new score is: {score}</Text>
-        <Text style={Style.popupMessage}>This is a great score, share with your friends and keep practicing to set new records.</Text>
+        <Text style={[Style.popupTitle]}>{I18n.t(`Your new score is`, { score: score })}</Text>
+        <Text style={Style.popupMessage}>{I18n.t(`great score message`)}</Text>
         <View style={Style.shareButtons}>
           <TouchableOpacity
             style={[Style.shareButton, {backgroundColor: '#3B5998'}]}
             activeOpacity={0.2}
             onPress={() => { this.shareContent() }}>
-            <Text style={Style.shareText}>Share with your friends</Text>
+            <Text style={Style.shareText}>{I18n.t(`Share with your friends`)}</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={[Style.shareButton, {backgroundColor: '#FFB717'}]}
             activeOpacity={0.2}
             onPress={() => { this.confirmRestart() }}>
-            <Text style={Style.shareText}>Try Again</Text>
+            <Text style={Style.shareText}>{I18n.t(`Try again`)}</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -175,16 +183,16 @@ class Modal extends Component {
     return (
       <View style={Style.popup}>
         <View style={Style.stars}>
-          <Text style={[Style.popupTitleLarge]}>Ops!</Text>
+          <Text style={[Style.popupTitleLarge]}>{I18n.t(`ops`)}</Text>
         </View>
-        <Text style={[Style.popupTitle]}>You didn't go very well this time.</Text>
-        <Text style={Style.popupMessage}>Come on, try again and show how you can go better now!</Text>
+        <Text style={[Style.popupTitle]}>{I18n.t(`You didn't go very well this time`)}</Text>
+        <Text style={Style.popupMessage}>{I18n.t(`Come on, try again and show how you can go better now!`)}</Text>
         <View style={Style.shareButtons}>
           <TouchableOpacity
             style={[Style.shareButton, {backgroundColor: '#FFB717'}]}
             activeOpacity={0.2}
             onPress={() => { this.confirmRestart() }}>
-            <Text style={Style.shareText}>Try Again</Text>
+            <Text style={Style.shareText}>{I18n.t(`Try again`)}</Text>
           </TouchableOpacity>
         </View>
       </View>
