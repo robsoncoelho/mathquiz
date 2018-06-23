@@ -186,7 +186,7 @@ class Modal extends Component {
           <Text style={[Style.popupTitleLarge]}>{I18n.t(`ops`)}</Text>
         </View>
         <Text style={[Style.popupTitle]}>{I18n.t(`You didn't go very well this time`)}</Text>
-        <Text style={Style.popupMessage}>{I18n.t(`Come on, try again and show how you can go better now!`)}</Text>
+        <Text style={Style.popupMessage}>{I18n.t(`Come on`)}</Text>
         <View style={Style.shareButtons}>
           <TouchableOpacity
             style={[Style.shareButton, {backgroundColor: '#FFB717'}]}

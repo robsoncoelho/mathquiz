@@ -3,6 +3,7 @@ import { View, Image, TouchableHighlight } from 'react-native';
 import { connect } from 'react-redux';
 import { COLOR } from '../common/variables';
 import { setOperationType } from './Main.actions';
+import { updateLives } from "../Question/Question.actions";
 
 import CommonStyle from '../common/style';
 import Style from './style';
@@ -28,7 +29,7 @@ class Button extends Component {
   }
 
   render() {
-    const { type, navigation } = this.props;
+    const { type, navigation, updateLives } = this.props;
     const { pressButton } = this.state;
 
     let icon_default,
@@ -62,6 +63,7 @@ class Button extends Component {
         onPress={() => {
             navigation.navigate('Question');
             this.setOperationType(type);
+            updateLives(3);
           }
         }>
         <Image
@@ -81,6 +83,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   setOperationType: (value) => {
     dispatch(setOperationType(value));
+  },
+  updateLives: value => {
+    dispatch(updateLives(value));
   },
 });
 
