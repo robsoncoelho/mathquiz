@@ -132,6 +132,10 @@
         "source": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-xxhdpi/abc_menu_hardkey_panel_mtrl_mult.9.png"
     },
     {
+        "merged": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_launcher.png",
+        "source": "/Users/ironman/Documents/projects/mathquiz/android/app/src/main/res/drawable-xxhdpi/ic_launcher.png"
+    },
+    {
         "merged": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi/abc_list_selector_disabled_holo_light.9.png",
         "source": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-xxhdpi/abc_list_selector_disabled_holo_light.9.png"
     },

@@ -13,7 +13,6 @@ export default function MainReducer(state = INITIAL_STATE, action) {
     case SET_OPERATION_TYPE:
       return { ...state, operation: action.payload };
     case COUNT_AD_MOB_INTERVAL:
-      console.log(action.payload)
       return { ...state, adMobInterval: action.payload };
     default:
       return state;

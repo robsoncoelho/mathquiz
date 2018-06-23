@@ -49,7 +49,7 @@ MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/ironman/Documents/proj
 	android:icon
 		ADDED from /Users/ironman/Documents/projects/mathquiz/android/app/src/main/AndroidManifest.xml:10:7-41
 	android:theme
-		ADDED from /Users/ironman/Documents/projects/mathquiz/android/app/src/main/AndroidManifest.xml:12:7-38
+		ADDED from /Users/ironman/Documents/projects/mathquiz/android/app/src/main/AndroidManifest.xml:12:7-41
 	android:name
 		ADDED from /Users/ironman/Documents/projects/mathquiz/android/app/src/main/AndroidManifest.xml:8:7-50
 activity#com.mathquiz.MainActivity

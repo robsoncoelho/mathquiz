@@ -44,7 +44,7 @@ export default MediaQueryStyleSheet.create({
 		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'center',
-		marginTop: WINDOW_HEIGHT * 0.08,
+		marginTop: WINDOW_HEIGHT * 0.05,
 	},
 	number: {
 		fontSize: 50,
@@ -73,7 +73,7 @@ export default MediaQueryStyleSheet.create({
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		flexWrap: 'wrap',
-		marginTop: WINDOW_HEIGHT * 0.08,
+		marginTop: WINDOW_HEIGHT * 0.06,
 	},
 	button: {
 		width: WINDOW_WIDTH * 0.37,

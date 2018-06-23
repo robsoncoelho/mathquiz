@@ -4,12 +4,16 @@
         "source": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_cab_background_top_material.xml"
     },
     {
-        "merged": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/res/merged/debug/drawable/abc_tab_indicator_material.xml",
-        "source": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_tab_indicator_material.xml"
+        "merged": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/res/merged/debug/drawable/splash_screen.xml",
+        "source": "/Users/ironman/Documents/projects/mathquiz/android/app/src/main/res/drawable/splash_screen.xml"
     },
     {
         "merged": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/res/merged/debug/drawable/abc_btn_borderless_material.xml",
         "source": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_btn_borderless_material.xml"
+    },
+    {
+        "merged": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/res/merged/debug/drawable/abc_tab_indicator_material.xml",
+        "source": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_tab_indicator_material.xml"
     },
     {
         "merged": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/res/merged/debug/drawable/abc_dialog_material_background_dark.xml",
@@ -46,6 +50,10 @@
     {
         "merged": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/res/merged/debug/drawable/abc_edit_text_material.xml",
         "source": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_edit_text_material.xml"
+    },
+    {
+        "merged": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/res/merged/debug/drawable/ic_launcher.png",
+        "source": "/Users/ironman/Documents/projects/mathquiz/android/app/src/main/res/drawable/ic_launcher.png"
     },
     {
         "merged": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/res/merged/debug/drawable/abc_btn_colored_material.xml",

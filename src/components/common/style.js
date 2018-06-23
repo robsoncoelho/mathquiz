@@ -16,7 +16,7 @@ export default MediaQueryStyleSheet.create({
   	logo: {
   		width: WINDOW_WIDTH * 0.3,
   		height: (WINDOW_WIDTH * 0.3) * 1.54,
-  		marginTop: WINDOW_HEIGHT * 0.05
+  		marginTop: WINDOW_HEIGHT * 0.06
   	},
     backButton: {
       width: WINDOW_WIDTH * 0.08,

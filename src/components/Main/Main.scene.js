@@ -42,7 +42,7 @@ class Main extends Component {
 
     return (
       <ImageBackground
-        source={require("../../assets/images/bg_home4.png")}
+        source={require("../../assets/images/bg_home.png")}
         style={CommonStyle.imageBackground}
       >
         <View style={CommonStyle.content}>

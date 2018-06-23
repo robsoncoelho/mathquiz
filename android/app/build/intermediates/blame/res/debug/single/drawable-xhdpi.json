@@ -148,6 +148,10 @@
         "source": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-xhdpi/abc_btn_radio_to_on_mtrl_000.png"
     },
     {
+        "merged": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_launcher.png",
+        "source": "/Users/ironman/Documents/projects/mathquiz/android/app/src/main/res/drawable-xhdpi/ic_launcher.png"
+    },
+    {
         "merged": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/res/merged/debug/drawable-xhdpi/abc_btn_switch_to_on_mtrl_00012.9.png",
         "source": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-xhdpi/abc_btn_switch_to_on_mtrl_00012.9.png"
     }
