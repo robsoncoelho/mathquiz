@@ -6,7 +6,8 @@ import {
   Text,
   Image,
   ImageBackground,
-  TouchableOpacity
+  TouchableOpacity,
+  Platform
 } from "react-native";
 
 import {
@@ -39,6 +40,11 @@ I18n.translations = {
   'en': require('../../translations/en'),
   'pt': require('../../translations/pt'),
 };
+
+const adBanner =
+  Platform.OS === "ios"
+    ? "ca-app-pub-8489622876114568/8527273230"
+    : "ca-app-pub-8489622876114568/1114948381";
 
 let bg_page, countDownInterval, icon_operation;
 
@@ -332,14 +338,12 @@ class Question extends Component {
         >
           <ModalTemplate type={modalType} navigation={navigation} />
         </Modal>
-        {/*
-        <AdMobBanner
+        {/*<AdMobBanner
           adSize="banner"
-          adUnitID='ca-app-pub-8489622876114568/8527273230'
+          adUnitID={adBanner}
           testDevices={[AdMobBanner.simulatorId]}
           onAdFailedToLoad={error => console.error(error)}
-        />
-        */}
+        />*/}
       </ImageBackground>
     );
   }
