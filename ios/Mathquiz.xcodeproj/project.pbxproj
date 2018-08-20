@@ -1261,7 +1261,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.brascargas;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mathquiz;
 				PRODUCT_NAME = Mathquiz;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1289,7 +1289,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.brascargas;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mathquiz;
 				PRODUCT_NAME = Mathquiz;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
