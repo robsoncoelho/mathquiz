@@ -116,7 +116,7 @@ android {
     compileSdkVersion 23
     buildToolsVersion "23.0.1"
     defaultConfig {
-        applicationId "com.mathquiz"
+        applicationId "com.mathquizapp"
         minSdkVersion 16
         targetSdkVersion 22
         versionCode 1

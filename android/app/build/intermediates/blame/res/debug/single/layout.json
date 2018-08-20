@@ -12,12 +12,12 @@
         "source": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.android.support/support-compat/26.1.0/res/layout/notification_action_tombstone.xml"
     },
     {
-        "merged": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/res/merged/debug/layout/notification_template_media_custom.xml",
-        "source": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/26.1.0/res/layout/notification_template_media_custom.xml"
-    },
-    {
         "merged": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/res/merged/debug/layout/notification_template_big_media_narrow.xml",
         "source": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/layout/notification_template_big_media_narrow.xml"
+    },
+    {
+        "merged": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/res/merged/debug/layout/notification_template_media_custom.xml",
+        "source": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/26.1.0/res/layout/notification_template_media_custom.xml"
     },
     {
         "merged": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/res/merged/debug/layout/redbox_item_frame.xml",
@@ -48,16 +48,16 @@
         "source": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/layout/select_dialog_singlechoice_material.xml"
     },
     {
-        "merged": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/res/merged/debug/layout/abc_screen_simple_overlay_action_mode.xml",
-        "source": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/layout/abc_screen_simple_overlay_action_mode.xml"
+        "merged": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_radio.xml",
+        "source": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/layout/abc_list_menu_item_radio.xml"
     },
     {
         "merged": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/res/merged/debug/layout/notification_action.xml",
         "source": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.android.support/support-compat/26.1.0/res/layout/notification_action.xml"
     },
     {
-        "merged": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_radio.xml",
-        "source": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/layout/abc_list_menu_item_radio.xml"
+        "merged": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/res/merged/debug/layout/abc_screen_simple_overlay_action_mode.xml",
+        "source": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/layout/abc_screen_simple_overlay_action_mode.xml"
     },
     {
         "merged": "/Users/ironman/Documents/projects/mathquiz/android/app/build/intermediates/res/merged/debug/layout/notification_template_lines.xml",
